@@ -14,7 +14,7 @@
  *   - Auto-reconnects on close — we must call .close() when the stream is done.
  */
 
-import EventSource from "eventsource";
+import { EventSource } from "eventsource";
 
 const API_URL = "http://localhost:8000/v1/stream";
 
@@ -66,7 +66,7 @@ function main() {
     const payload: MessageStop = JSON.parse(e.data);
     console.log(`\n\nStream complete — reason: ${payload.stop_reason}`);
     console.log(
-      `Usage: ${payload.usage.input_tokens} input / ${payload.usage.output_tokens} output tokens`
+      `Usage: ${payload.usage.input_tokens} input / ${payload.usage.output_tokens} output tokens`,
     );
     console.log(`\nFull response: ${fullText}`);
 
